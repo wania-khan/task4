@@ -64,7 +64,7 @@ function App() {
   }
   return (
     <div className="App">
-      <div className="form-container">
+      <div className="form-container" onSubmit={handleSubmit}>
         <form className="form-group">
           <center><p><b>USER FORM</b></p></center>
           <div className="form-group">
