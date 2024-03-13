@@ -1,7 +1,9 @@
+body{
+  margin: 0;
+}
 .App {
   text-align: center;
 }
-
 .form-container {
   display: inline-block;
   background-color: #fff;
@@ -40,12 +42,25 @@ button {
   width: 100%;
 }
 
-.data-container {
-  /* display: inline-block; */
+.container {
   vertical-align: top;
   width: 100%;
-  display: grid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  color: #666;
+  box-sizing: border-box;
+  margin-left:0;
+  margin-right: 0%;
 }
+/* .left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+} */
 
 .data-row {
   background-color: #f9f9f9;
@@ -60,7 +75,7 @@ button {
   background-color: #383434;
 }
 
-.react-crud {
+/* .react-crud {
   background-color: black;
   color: #666;
   display: flex;
@@ -69,7 +84,7 @@ button {
   
   .react-crud p {
     margin: 0;
-  }
+  } */
   .icons{
     cursor: pointer;
   }

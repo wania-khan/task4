@@ -88,10 +88,15 @@ function App() {
         </form>
       </div>
 <br></br>
-      <div className="data-container">
-        <div className="data-row react-crud">
-          <p><b>REACT CRUD   HOME   CREATE USER  SHOW USER&nbsp;&nbsp;</b></p>
-        </div>
+<div class="div1">
+<div class="container">
+  <div class="left">
+    <p><b>REACT CRUD</b></p>
+  </div>
+  <div class="right">
+    <p><b>HOME | CREATE USER | SHOW USER</b></p>
+  </div>
+</div>
 
         <table className='table table-hover'>
           <thead>
