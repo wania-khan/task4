@@ -27,16 +27,20 @@ function App() {
     }
   
   }
-  const handleView=(id)=>{
+  const handleView = (id) => {
+    console.log("Viewing user with ID:", id);
     const dt = data.filter(item => item.id === id);
     if (dt.length > 0) {
       setSelectedUser(dt[0]);
       setIsViewing(true);
+      console.log("Checking /// User data found:", dt[0]);
     } else {
       console.error("Error: User data not found for id:", id);
     }
-  }
+  };
+  
   const handleCloseModal = () => {
+    console.log("Closing modal");
     setIsViewing(false);
     setSelectedUser(null);
   };
@@ -66,19 +70,19 @@ function App() {
           <div className="form-group">
             <label>Name</label>
             <br />
-            <input type='text' value={name} onChange={(e)=> setName(e.target.value)} disabled={isViewing}  style={{width:"100%"}}/>
+            <input type='text' value={name} onChange={(e)=> setName(e.target.value)} disabled={!isViewing}  style={{width:"100%"}}/>
             <br />
           </div>
           <div className="form-group">
             <label>Email</label>
             <br />
-            <input type='email' value={email} onChange={(e)=> setEmail(e.target.value)} disabled={isViewing} style={{width:"100%"}}/>
+            <input type='email' value={email} onChange={(e)=> setEmail(e.target.value)} disabled={!isViewing} style={{width:"100%"}}/>
             <br />
           </div>
           <div className="form-group">
             <label>Phone</label>
             <br />
-            <input type='text' value={phone} onChange={(e)=> setPhone(e.target.value)} disabled={isViewing} style={{width:"100%"}}/>
+            <input type='text' value={phone} onChange={(e)=> setPhone(e.target.value)} disabled={!isViewing} style={{width:"100%"}}/>
             <br />
           </div>
           <br />
@@ -86,12 +90,12 @@ function App() {
         </form>
       </div>
 <br></br>
-<div class="div1">
-<div class="container">
-  <div class="left">
+<div className="div1">
+<div className="container">
+  <div className="left">
     <p><b>REACT CRUD</b></p>
   </div>
-  <div class="right">
+  <div className="right">
     <p><b>HOME | CREATE USER | SHOW USER</b></p>
   </div>
 </div>
@@ -124,8 +128,8 @@ function App() {
         </table>
       </div>
       {isViewing && selectedUser && (
-    <ViewModal user={selectedUser} onClose={handleCloseModal} />
-  )}
+      <ViewModal user={selectedUser} onClose={handleCloseModal} />
+    )}
     </div>
   );
 }
