@@ -117,7 +117,7 @@ function App() {
           </thead>
           <tbody>
             {data.map((item, index) => (
-              <tr key={index} className={index % 2 === 0 ? "light-row" : "dark-row"}>
+              <tr key={index}>
                 <td>{item.id}</td>
                 <td>{item.name}</td>
                 <td>{item.email}</td>
