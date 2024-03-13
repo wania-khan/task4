@@ -13,9 +13,7 @@ function App() {
   const [isViewing, setIsViewing] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
 
-  useEffect(() =>{
-  setData(empData)
-  }, []);
+  useEffect(() =>{setData(empData)}, []);
   
   const handleEdit=(id)=>{
     const dt=data.filter(item => item.id===id)
