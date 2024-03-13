@@ -105,7 +105,7 @@ function App() {
           </div>
         </div>
 
-        <table className='table table-hover'>
+        <table className="table table-hover">
           <thead>
             <tr>
               <td><b>ID</b></td>
