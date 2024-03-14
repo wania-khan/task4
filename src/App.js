@@ -121,6 +121,9 @@ function App() {
       </div>
       <br></br>
       <div className="div1">
+      {isViewing && selectedUser && (
+          <ViewModal user={selectedUser} onClose={handleCloseModal} />
+        )}
         <div className="container">
           <div className="left">
             <p>
@@ -133,9 +136,6 @@ function App() {
             </p>
           </div>
         </div>
-        {isViewing && selectedUser && (
-          <ViewModal user={selectedUser} onClose={handleCloseModal} />
-        )}
         <table className="table table-hover">
           <thead>
             <tr>
