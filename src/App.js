@@ -69,6 +69,15 @@ function App() {
       setData(newData);
       setEditIndex(-1); 
     }
+    else {
+      const newUser = {
+        id: data.length + 1,
+        name,
+        email,
+        phone,
+      };
+      setData([...data, newUser]);
+    }
     setName("");
     setEmail("");
     setPhone("");
