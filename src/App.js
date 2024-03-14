@@ -16,14 +16,16 @@ function App() {
   const [id, setId] = useState(0);
   const [isViewing, setIsViewing] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
+  const [editIndex, setEditIndex] = useState(-1); 
 
   useEffect(() => {
     setData(empData);
   }, []);
 
-  const handleEdit = (id) => {
+  const handleEdit = (id, index) => {
     const dt = data.filter((item) => item.id === id);
     if (dt.length > 0) {
+      setEditIndex(index);
       setId(dt[0].id);
       setName(dt[0].name);
       setEmail(dt[0].email);
@@ -61,17 +63,17 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newUser = {
-      id: data.length + 1,
-      name,
-      email,
-      phone,
-    };
-    setData([...data, newUser]);
+    if (editIndex !== -1) { 
+      const newData = [...data];
+      newData[editIndex] = { id, name, email, phone };
+      setData(newData);
+      setEditIndex(-1); 
+    }
     setName("");
     setEmail("");
     setPhone("");
   };
+
 
   return (
     <div className="App">
@@ -116,7 +118,7 @@ function App() {
             <br />
           </div>
           <br />
-          <button type="submit">Submit</button>
+          <button type="submit">{editIndex !== -1 ? 'Edit' : 'Submit'}</button>
         </form>
       </div>
       <br></br>
@@ -164,7 +166,7 @@ function App() {
                 <td>{item.email}</td>
                 <td>{item.phone}</td>
                 <td className="icons">
-                  <BsFillPencilFill onClick={(e) => handleEdit(item.id)} />
+                  <BsFillPencilFill onClick={(e) => handleEdit(item.id, index)} />
                   &nbsp;
                   <BsFillEyeFill onClick={(e) => handleView(item.id)} />
                   &nbsp;
